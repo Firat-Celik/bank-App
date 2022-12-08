@@ -1,0 +1,19 @@
+<div class="container">
+  <span [ngClass]="'mat-card-header modalheadCss'">Güncel Hesap Bakiyeniz: {{data.bakiye}} {{data.paraBirimi}}  <mat-icon matSuffix> error_outline</mat-icon></span><hr>
+
+  <span [ngClass]="'mat-card-header modalheadCss'"  *ngIf="amount > 0" >İşlem Sonrası Tahmini Bakiyeniz: {{data.bakiye - amount}}  {{data.paraBirimi}} <mat-icon>swap_horiz</mat-icon> </span><br>
+
+  <div mat-dialog-content>
+    <mat-form-field [ngClass]="'example-form-field'" [ngStyle]="{'width':'270px'}" >
+      <mat-label>Lütfen Çekilecek Tutarı Giriniz:</mat-label>
+      <input matInput type="textbox"  [(ngModel)]="amount" DecimalValid>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="onNoClick()">Vazgeç</button>
+
+    <button mat-raised-button color="primary" *ngIf="amount <=data.bakiye" mat-button  (click)="onAppClick()">Çek</button>
+    <button mat-raised-button color="primary" *ngIf="amount >data.bakiye" mat-button disabled (click)="onAppClick()">Çek</button>
+  </div>
+
+</div>

@@ -1,27 +1,23 @@
-# BankApp
+Fırat ÇELİK - Banka Hesap İşlemleri Uygulaması
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
+Yapılanlar :
+• Backend kısmında .Net Core 7 sürümü kullanıldı. Veriler manuel oluşturulup Session bilgisinde tutuldu.
+• Material UI Table kullanılarak, api aracılığı ile kullanıcının banka hesaplarının listelendiği bir liste oluşturuldu.
+• Hesap listesinde her bir kaydın sağ tarafında Para Yatır ve Para Çek butonları yer aldı.
+• Para Yatır - Para Çek butonları için modal componentler tasarlandı.
+• Para yatırma - çekme modallarında güncel bakiye bilgisi ve işlem sonrası tahmini bakiye bilgilerinin yer aldığı alanlar eklendi.
+• Para yatırma - çekme modallarında inputlarda decimal değer validasyonu yazıldı ve buna ilişkin kısıtlamalar düzenlendi.
+• Para çekme işlemlerinde bakiye kontrolü sağlandı, yetersiz olduğu durumlarda "Çek" butonu deaktif edilip işlem yapılması kısıtlandı.
+• Ağırlıklı olarak Material UI kütüphanesi ve ona ait alt özellikleri kullanıldı.
+• Para yatır-çek işlemi tamamlandığında api aracılığı ile güncel veriler çekilip, tablo verileri güncellenmektedir.  
+• Unit Test(Angular/Jasmine) sistemi oluşturuldu.
 
-## Development server
+Yapılamayanlar:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+• Kısıtlı zaman sebebi ile ;
+* Backend projesi için Unit Test oluşturulamadı. (Oluşturduğumda bazı hatalar almam üzerine silmek durumunda kaldım)
+* Backend projesinde Session alt yapısı kullandım. Bu alt yapı swagger ile gayet düzgün çalışmakta fakat
+  frontend ile istek attığımda session anlam veremediğim bir biçimde sıfırlanmakta. Gerekli tüm ayarları yaptım fakat
+  durum düzelmedi kısıtlı zaman nedeni ile maalesef çok ilgilenemedim. Bu sebeple proje işlemleri swaggerda olması gerektiği gibi çalışmakta
+  ama frontend tabanlı işlemlerde maalesef default ayarlarında çalışmakta ve değişiklikleri sisteme yansıtamamaktadır.
+* Frontend projesinde Unit Test oluştrdum fakat "Data Service" implementasyonunda bir hata verdi çözmeye çalıştım fakat süre nedeni ile maalesef çok ilgilenemedim.
